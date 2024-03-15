@@ -1,0 +1,10 @@
+{
+    "conventionalCommits.scopes": [
+        "root",
+        "clients",
+        "models",
+        "service",
+        "data access",
+        "components"
+    ]
+}
