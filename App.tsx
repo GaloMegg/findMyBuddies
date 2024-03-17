@@ -1,8 +1,9 @@
 import React from 'react';
-import SignUpContainer from './src/components/auth/signup/SignUpContainer';
+import ViewAllBuddiesContainer from './src/components/buddies/view/viewAll/ViewAllBuddiesContainer';
 
 function App(): React.JSX.Element {
-  return <SignUpContainer />;
+  // return <SignUpContainer />;
+  return <ViewAllBuddiesContainer />;
 }
 
 export default App;

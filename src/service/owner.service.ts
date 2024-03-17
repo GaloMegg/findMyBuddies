@@ -1,5 +1,5 @@
-import OwnerDA from '@/dataAccess/owner.da';
-import {IOwner} from '@/models/owner.model';
+import OwnerDA from '../dataAccess/owner.da';
+import {IOwner} from '../models/owner.model';
 
 export default class OwnerService {
   private static instance: OwnerService;

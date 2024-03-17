@@ -5,6 +5,7 @@
         "models",
         "service",
         "data access",
-        "components"
+        "components",
+        "multiscope"
     ]
 }

@@ -1,17 +1,17 @@
 export interface IBuddy {
   type: EBuddyType;
-  BuddyId: string;
-  Name: string;
-  Bred: string;
-  Ownerid: string;
-  Status: EBuddyStatus;
-  Image: Buffer;
+  buddyId: string;
+  name: string;
+  breed: string;
+  ownerId: string;
+  status: EBuddyStatus;
+  image?: Buffer;
 }
 
 export enum EBuddyType {
-  CAT,
-  DOG,
-  OTHER,
+  CAT = 'CAT',
+  DOG = 'DOG',
+  OTHER = 'OTHER',
 }
 
 export enum EBuddyStatus {

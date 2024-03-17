@@ -1,8 +1,8 @@
-import {createAccountWithEmailAndPassword} from '@/clients/firebase.auth';
-import TextInputCustom from '@/components/styledComponents/TextInputCustom';
-import OwnerService from '@/service/owner.service';
 import React from 'react';
 import {Button, StyleSheet, View} from 'react-native';
+import {createAccountWithEmailAndPassword} from '../../../clients/firebase.auth';
+import OwnerService from '../../../service/owner.service';
+import TextInputCustom from '../../styledComponents/TextInputCustom';
 
 type Props = {
   name: string;
