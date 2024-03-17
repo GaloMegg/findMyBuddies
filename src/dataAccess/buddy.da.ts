@@ -1,5 +1,3 @@
-import {DB} from '@/clients/firebase.app';
-import {IBuddy} from '@/models/buddy.model';
 import {
   collection,
   doc,
@@ -9,6 +7,8 @@ import {
   setDoc,
   where,
 } from 'firebase/firestore';
+import {DB} from '../clients/firebase.app';
+import {IBuddy} from '../models/buddy.model';
 
 export default class BuddyDA {
   private static instance: BuddyDA;
@@ -47,8 +47,8 @@ export default class BuddyDA {
    * @return {Promise<any>} A promise that resolves with the data of the found buddy document,
    * or null if no document is found.
    */
-  async findOne(ownerId: string): Promise<any> {
-    const docRef = doc(DB, this.ENTITY_NAME, ownerId);
+  async findOne(buddyId: string): Promise<any> {
+    const docRef = doc(DB, this.ENTITY_NAME, buddyId);
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
       return docSnap.data();
