@@ -1,15 +1,14 @@
-import {createAccountWithEmailAndPassword} from 'clients/firebase.auth';
-import TextInputCustom from 'components/styledComponents/TextInputCustom';
-import React from 'react';
-import {Button, StyleSheet, View} from 'react-native';
-import OwnerService from 'services/owner.service';
+import { loginWithEmailAndPassword } from 'clients/firebase.auth'
+import TextInputCustom from 'components/styledComponents/TextInputCustom'
+import React from 'react'
+import { Button, StyleSheet, View } from 'react-native'
 
 type Props = {
-  name: string;
-  email: string;
-  password: string;
-  setUserDataHandler: (prop: string, value: string) => void;
-};
+  name: string
+  email: string
+  password: string
+  setUserDataHandler: (prop: string, value: string) => void
+}
 
 /**
  * Component for rendering a sign-up form.
@@ -27,56 +26,35 @@ type Props = {
  * @param {Props} setUserDataHandler - The handler for setting user data
  * @return {JSX.Element} The sign-up form component
  */
-const SignUp = ({
-  name,
-  email,
-  password,
-  setUserDataHandler,
-}: Props): JSX.Element => {
+const LogIn = ({ email, password, setUserDataHandler }: Props): JSX.Element => {
   return (
     <View style={styles.container}>
-      {/* Name input */}
-      <TextInputCustom
-        placeholder="Name"
-        onChangeText={(text: string) => setUserDataHandler('name', text)}
-        value={name}
-      />
       {/* Email input */}
       <TextInputCustom
-        placeholder="Email"
+        placeholder='Email'
         value={email}
         onChangeText={(text: string) => setUserDataHandler('email', text)}
       />
       {/* Password input */}
       <TextInputCustom
-        placeholder="Password"
+        placeholder='Password'
         onChangeText={(text: string) => setUserDataHandler('password', text)}
         secureTextEntry={true}
         value={password}
       />
       {/* Sign up button */}
       <Button
-        title="Sign Up"
+        title='Sign Up'
         onPress={async () => {
-          const userId = await createAccountWithEmailAndPassword(
-            email,
-            password,
-          );
-          const ownerService = OwnerService.getInstance();
-          ownerService.create(userId, {
-            name,
-            email,
-            location: {latitude: 0, longitude: 0},
-            ownerId: userId,
-            phoneNumber: '',
-          });
+          const user = await loginWithEmailAndPassword(email, password)
+          console.log(user)
         }}
       />
     </View>
-  );
-};
+  )
+}
 
-export default SignUp;
+export default LogIn
 
 const styles = StyleSheet.create({
   container: {
@@ -86,6 +64,6 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     gap: 10,
     alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+    justifyContent: 'center'
+  }
+})

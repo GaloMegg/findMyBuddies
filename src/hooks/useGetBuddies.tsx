@@ -1,6 +1,6 @@
+import {IBuddy} from 'models/buddy.model';
 import {useEffect, useState} from 'react';
-import {IBuddy} from '../models/buddy.model';
-import BuddyService from '../service/buddy.service';
+import BuddyService from 'services/buddy.service';
 
 type Props = {
   ownerId: string;
@@ -21,6 +21,9 @@ const useGetBuddies = ({ownerId}: Props) => {
       setLoading(false);
     }
   };
+  const deleteBuddy = async (ownerId: string, buddyId: string) => {
+    console.log('delete');
+  };
   useEffect(() => {
     setLoading(true);
     if (ownerId) {
@@ -35,6 +38,7 @@ const useGetBuddies = ({ownerId}: Props) => {
 
   return {
     buddies,
+    deleteBuddy,
     loading,
   };
 };

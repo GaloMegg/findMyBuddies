@@ -1,5 +1,5 @@
-import {createUserWithEmailAndPassword} from 'firebase/auth';
-import {AUTH} from './firebase.app';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { AUTH } from './firebase.app';
 
 /**
  * Creates an account with the given email and password.
@@ -25,3 +25,18 @@ export const createAccountWithEmailAndPassword = async (
     throw error;
   }
 };
+
+
+export const loginWithEmailAndPassword = async (email: string, password: string) => {
+    
+  const userCredential = signInWithEmailAndPassword(AUTH, email, password)
+    .then(userCredential => {
+      // Signed in
+      const user = userCredential.user
+      // ...
+    })
+    .catch(error => {
+      const errorCode = error.code
+      const errorMessage = error.message
+    })
+}
