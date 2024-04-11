@@ -1,3 +1,4 @@
+import {DB} from 'clients/firebase.app';
 import {
   collection,
   doc,
@@ -7,8 +8,7 @@ import {
   setDoc,
   where,
 } from 'firebase/firestore';
-import {DB} from '../clients/firebase.app';
-import {IBuddy} from '../models/buddy.model';
+import {IBuddy} from 'models/buddy.model';
 
 export default class BuddyDA {
   private static instance: BuddyDA;

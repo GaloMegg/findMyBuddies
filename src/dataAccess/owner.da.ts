@@ -1,6 +1,6 @@
+import {DB} from 'clients/firebase.app';
 import {doc, getDoc, setDoc} from 'firebase/firestore';
-import {DB} from '../clients/firebase.app';
-import {IOwner} from '../models/owner.model';
+import {IOwner} from 'models/owner.model';
 
 export default class OwnerDA {
   private static instance: OwnerDA;
