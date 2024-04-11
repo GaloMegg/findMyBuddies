@@ -1,8 +1,8 @@
-import OwnerDA from '../dataAccess/owner.da';
-import {IOwner} from '../models/owner.model';
+import OwnerDA from 'dataAccess/owner.da'
+import { IOwner } from 'models/owner.model'
 
 export default class OwnerService {
-  private static instance: OwnerService;
+  private static instance: OwnerService
   private constructor() {}
   /**
    * Returns an instance of OwnerService, creating a new one if it doesn't exist.
@@ -11,11 +11,11 @@ export default class OwnerService {
    */
   public static getInstance(): OwnerService {
     if (!OwnerService.instance) {
-      OwnerService.instance = new OwnerService();
+      OwnerService.instance = new OwnerService()
     }
-    return OwnerService.instance;
+    return OwnerService.instance
   }
-  private ownerDA = OwnerDA.getInstance();
+  private ownerDA = OwnerDA.getInstance()
 
   /**
    * A description of the entire function.
@@ -26,8 +26,8 @@ export default class OwnerService {
    */
   async create(
     ownerId: string,
-    ownerData: Partial<IOwner>,
+    ownerData: Partial<IOwner>
   ): Promise<Partial<IOwner>> {
-    return await this.ownerDA.create(ownerId, ownerData);
+    return await this.ownerDA.create(ownerId, ownerData)
   }
 }
